@@ -8,6 +8,7 @@ scoop (packge manager)
 scoop install gradle
 scoop install mariadb@10.3.7 삭제
 scoop install mysql
+scoop install nodejs
 
 ##mysql 설정
 
@@ -15,6 +16,9 @@ scoop install mysql
 
 > mysql -uroot -p
 enter password (암호 없기  때문에  그냥 엔터 친다.)
+
+show columns from user;
+유저에 대한 항목 확인할수있음
 
 show tables 해서 보고 user에 컬럼 확인
 select host, user from user;
@@ -53,52 +57,48 @@ mysql >show tables;
 
 sytudydb에 테이블 생성
 => bitcamp-sql/pms-ddl.sql 실행
-mysql>sqL을 복사하여 붗여 넣는다.
+mysql>sqL을 복사하여 붙여 넣는다.
 
 '''''
 
 ## tomcat 설치
-1)톰캣 다운로드
-- tomcat.apache.org에서 다운로드
+1) 톰캣 다운로드
+- tomcat.apache.org 에서 다운로드
 
-2) 톰캣 설치
-- C:
-
-
+2) 톰캣 설치 
+- c:\apps 폴더에 압축 푼다.
 ## eclipse 설정
 
 '''
 워크스페이스 설정
-1)문자집합을 utf-8 로 설정하기
-- Preferences/Feneral/Workspace/Text file encoding
-- utf-8로 설정한다.
-
-2)에디터 기본 환경 설정
+1) 문자집합을 utf-8 로 설정한다.
+- Preferences/General/Workspace/Text file encoding
+  - UTF-8로 설정한다.
+2) 에디터 기본 환경 설정
 - Preferences/General/Editors/Text Editors
-- 탭 크기를 2또는 4로 설정한다
-- 탭을 스페이스로 표현한다.
-- 한줄 크기는 80자 정도.
-- 탭이나 공백에 대한 흐릿하게 표시하기
-3)자바 설정
+  - 탭 크기를 2 또는 4로 설정
+  - 탭을 스페이스로 표현한다.
+  - 한 줄 크기는 80자 정도.
+  - 탭이나 공백에 대해 흐릿하게 표시.
+3) 자바 환경 설정
 - Preferences/Java/
- - Installed JRE : JDK 위치 지정하기
- - code style/Formatter : 자바 에디터 탭 정보 설정
- - compiler : 기본 컴파일 버전 설정
-
- 4) 웹 환경 설정
- 
-- Preferences/web/
-    -css Filess : 문자 집합 UTF-8로 설정
-    -HTML Files : 문자 집합을 UTF-8로 설정
-    -JSP FIles : 문자 집합을 UTF-8로 설정
-
+  - Installed JRE : JDK 위치 지정하기
+  - Code Style/Formatter : 자바 에디터 탭 정보 설정
+  - Compiler: 기본 컴파일 버전 설정
+4) 웹 환경 설정
+- Preferences/Web/
+  - CSS Files : 문자 집합을 UTF-8로 설정
+  - HTML Files : 문자 집합을 UTF-8로 설정
+  - JSP Files : 문자 집합을 UTF-8로 설정
 5) WAS 서버 환경 설정
--Preferences/SErvers/
- -Runtime Environments : 톰캣 서버 위치 설정
-
+- Preferences/Servers/
+  - Runtime Environments : 톰캣 서버 위치 설정
 6) 애플리케이션을 배포하고 테스트할 톰캣 실행 환경 설정
-- 
+- Servers 뷰 
+  - 테스트용 실행 서버 추가
 
+  nodjs인스톨
+  npm 인스톨
 '''
 
 
@@ -106,8 +106,10 @@ mysql>sqL을 복사하여 붗여 넣는다.
 ## 웹 프로젝트 폴더 준비
 ''''
 
-예제 프로젝트 복사 
--java106-java-project 를 
-bitcamp-cloud-computing 폴더로 복사한다.
+1) 예제 프로젝트 복사
+- java106-java-project 를 bitcamp-cloud-computing 폴더로 복사한다.
 
+2) 프로젝트 폴더를 이클립스 프로젝트로 만든다.
+- 'gradle eclipse'를 실행하여 이클립스 설정 파일을 생성한다.
+  - .project, .classpath, .settings/ 등이 있어야만 이클립스는 해당 프로젝트를 import 할 수 있다. 
 ''''
