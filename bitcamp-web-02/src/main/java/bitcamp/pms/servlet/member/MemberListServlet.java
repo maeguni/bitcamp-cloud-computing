@@ -21,7 +21,7 @@ public class MemberListServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");//메서드 분류
         PrintWriter out = response.getWriter();
         
         out.println("<!DOCTYPE html>");

@@ -12,7 +12,7 @@
 - JDBC를 이용하여 데이터를 다루는 방법
 
 
-## web-04 : DAO
+## web-04 : DAO + DTO(Vo)
 - 데이터 처리를 전문으로 하는 DAO 객체를 도입
 
 ## web-05 : 서블릿 + DAO + JSP = MVC 아키텍처 
