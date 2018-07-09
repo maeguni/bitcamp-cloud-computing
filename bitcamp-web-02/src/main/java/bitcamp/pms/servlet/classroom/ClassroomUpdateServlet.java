@@ -1,4 +1,4 @@
-package bitcamp.pms.servlet.board;
+package bitcamp.pms.servlet.classroom;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,13 +14,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
-@WebServlet("/board/add")
-public class BoardAddServlet extends HttpServlet {
-
+@WebServlet("/classroom/update")
+public class ClassroomUpdateServlet extends HttpServlet{
+    
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");               
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+              
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
@@ -28,17 +28,12 @@ public class BoardAddServlet extends HttpServlet {
         out.println("<html>");
         out.println("<head>");
         out.println("<meta charset='UTF-8'>");
-        
-        // 지정된 시간이 경과하면 특정 서블릿을 요청하도록 태그를 삽입!
-        // => 웹브라우저는 meta 태그의 내용대로 동작한다.
-        //    content='경과시간(초);url=요청할URL'
-        //
         //out.println("<meta http-equiv='Refresh' content='1;url=list'>");
-        
-        out.println("<title>게시물 등록</title>");
+        out.println("<title>강의 변경</title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<h1>게시물 등록 결과</h1>");
+        out.println("<h1>강의 변경 결과</h1>");
+        
         try {
             Class.forName("com.mysql.jdbc.Driver");
             try (
@@ -46,21 +41,28 @@ public class BoardAddServlet extends HttpServlet {
                         "jdbc:mysql://13.209.64.30:3306/studydb",
                         "study", "1111");
                 PreparedStatement stmt = con.prepareStatement(
-                    "insert into pms2_board(titl,cont,cdt) values(?,?,now())");) {                
+                    "update pms2_classroom set titl=?, sdt=?, edt=?, room=? where crno=?");) {
+                
                 stmt.setString(1, request.getParameter("title"));
-                stmt.setString(2, request.getParameter("content")); 
-                               
-                stmt.executeUpdate();
-                out.println("<p>등록 성공!</p>");
+                stmt.setDate(2, Date.valueOf(request.getParameter("startDate")));
+                stmt.setDate(3, Date.valueOf(request.getParameter("endDate")));
+                stmt.setString(4, request.getParameter("room"));
+                stmt.setInt(5, Integer.parseInt(request.getParameter("no")));               
+          
+            if (stmt.executeUpdate() == 0) {
+                out.println("<p>해당 강의가 존재하지 않습니다.</p>");
+                
+            } else {
+                out.println("<p>변경하였습니다.</p>");
+            }
             }
         } catch (Exception e) {
-            out.println("<p>등록 실패!</p>");
+            out.println("<p>변경 실패!</p>");
             e.printStackTrace(out);
         }
         out.println("</body>");
         out.println("</html>");
-    
-
+        
     }
 
 }

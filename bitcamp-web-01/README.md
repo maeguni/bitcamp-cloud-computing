@@ -35,6 +35,7 @@ function prompt {
 자바 애플리케이션 프로젝트를 위한 기본 폴더 및 예제 파일을 생성한다.
 ```
 > gradle init --type java-application
+gradle --tasks -- all
 ```
 
 웹 관련 폴더 추가 
