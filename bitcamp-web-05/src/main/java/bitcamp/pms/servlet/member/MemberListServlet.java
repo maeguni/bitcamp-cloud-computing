@@ -1,6 +1,7 @@
 package bitcamp.pms.servlet.member;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,21 +11,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bitcamp.pms.dao.MemberDao;
+import bitcamp.pms.domain.Member;
 
 @SuppressWarnings("serial")
-@WebServlet("/member/delete")
-public class MemberDeleteServlet extends HttpServlet {
+@WebServlet("/member/list")
+public class MemberListServlet extends HttpServlet {
+
     @Override
     protected void doGet(
             HttpServletRequest request, 
             HttpServletResponse response) throws ServletException, IOException {
         
+        response.setContentType("text/html;charset=UTF-8");
+
         try {
             MemberDao memberDao = 
-                    (MemberDao) getServletContext().getAttribute("memberDao");
-                 
-            memberDao.delete(request.getParameter("id"));
-            response.sendRedirect("list");
+               (MemberDao) getServletContext().getAttribute("memberDao");
+            
+            List<Member> list = memberDao.selectList();
+            request.setAttribute("list", list);
+            
+            RequestDispatcher rd = 
+                    request.getRequestDispatcher("/member/list.jsp");
+            rd.include(request, response);
             
         } catch (Exception e) {
             request.setAttribute("error", e);
@@ -34,8 +43,11 @@ public class MemberDeleteServlet extends HttpServlet {
         }
     }
     
-    
+
 }
+
+
+
 
 
 
