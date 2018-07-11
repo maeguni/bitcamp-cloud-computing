@@ -36,10 +36,17 @@ public class BoardDeleteServlet extends HttpServlet {
         out.println("<h1>게시물 삭제 결과</h1>");
         
         try {          
-             Bo
-             
-         
-    
+            Class.forName("com.mysql.jdbc.Driver");
+            try (
+                Connection con = DriverManager.getConnection(
+                        "jdbc:mysql://13.209.64.30:3306/studydb",
+                        "study", "1111");
+                PreparedStatement stmt = con.prepareStatement(
+                    "delete from pms2_board where bno=?");) {
+                
+                    stmt.setInt(1, no); 
+               
+             if(stmt.executeUpdate()== 0) {
                 out.println("<p>해당 게시물이 없습니다.</p>");
             } else {
                 out.println("<p>삭제하였습니다.</p>");
@@ -47,27 +54,9 @@ public class BoardDeleteServlet extends HttpServlet {
             }
         } catch (Exception e) {
             out.println("<p>삭제 실패!</p>");
-            e.printStackTrace(out);
-            
+            e.printStackTrace(out);            
         }
         out.println("</body>");
         out.println("</html>");
- }
-}
-
-  public static int delete throws Exception {
-     
-     Class.forName("com.mysql.jdbc.Driver");
-     try (
-         Connection con = DriverManager.getConnection(
-                 "jdbc:mysql://13.209.64.30:3306/studydb",
-                 "study", "1111");
-         PreparedStatement stmt = con.prepareStatement(
-             "delete from pms2_board where bno=?");) {
-         
-         stmt.setInt(1, no); 
-         
-         return stmt.executeUpdate();
-         }  
-     
+        }
  }

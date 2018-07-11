@@ -197,26 +197,18 @@ public class MemberDao {
             stmt.executeUpdate();
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     

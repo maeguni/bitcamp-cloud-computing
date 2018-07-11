@@ -27,8 +27,7 @@ public class MemberViewServlet extends HttpServlet {
             MemberDao memberDao = 
                     (MemberDao) getServletContext().getAttribute("memberDao");
                  
-            Member member = memberDao.select
-                    One(id);
+            Member member = memberDao.selectOne(id);
             request.setAttribute("member", member);
             
             RequestDispatcher rd = 
