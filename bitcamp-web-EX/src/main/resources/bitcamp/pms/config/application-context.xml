@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/beans/spring-context.xsd        
+        ">
+  
+   
+<!--    <context:include-filter type="" expression=""/> : 자동 스캔 대상에 포함시킬 클래스
+         <context:exclude-filter type="" expression=""/> : 포함시키지 않을 클래스 -->
+
+ <!--  Autowired를 통한  자동 객체 등록을 위해서 검색할  패키지경로 설정 -->
+ <context:component-scan base-package="bitcamp.pms">
+    <context:exclude-filter type="regex" 
+                            expression="bitcamp.pms.test.*"/>
+  </context:component-scan>
+     
+  <bean id="SqlSessionFactoryBuilder" class ="org.apache.ibatis.session.SqlSessionFactoryBuilder"/>
+ 
+ 
+  <bean id="selSessionFactory" 
+       factory-bean ="selSessionFactoryBuilder"
+       factory-method="build">    
+  </bean>
+
+<bean id = "inputStream"
+           class="factory-method="getResourceAsStream">
+           <con
+
+
+</bean>
+ 
+ 
+ 
+ 
+   
+  </beans>
