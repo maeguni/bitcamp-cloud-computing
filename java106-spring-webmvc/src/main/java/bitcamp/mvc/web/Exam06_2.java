@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Exam06_2 {
     
     // request handler에서 콘텐트를 직접 리턴할 때
-    // HttpEntity에 담아서 리턴할 수 있다.
+    // HttpEntity에 담아서 리턴할 수 있다. responseBody 삭제가능
     @GetMapping(value="m1")  
     public HttpEntity<String> m1() {
         // 마찬가지로 응답 콘텐트의 기본 타입은 
