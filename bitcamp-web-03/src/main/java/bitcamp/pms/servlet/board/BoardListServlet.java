@@ -2,6 +2,7 @@ package bitcamp.pms.servlet.board;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -36,10 +37,9 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
      out.println("    <th>번호</th><th>제목</th><th>등록일</th>");
      out.println("</tr>");
      
-     try {
-       
-             BoardDao boardDao = new BoardDao();             
-             List<Board>list = BoardDao.selectList();
+     try {      
+             BoardDao boardDao = new BoardDao();   
+        List<Board>list = BoardDao.selectList();
              for(Board board : list){              
                  out.println("<tr>");
                  out.printf("    <td>%d</td><td><a href='view?no=%d'>%s</a></td><td>%s</td>\n",

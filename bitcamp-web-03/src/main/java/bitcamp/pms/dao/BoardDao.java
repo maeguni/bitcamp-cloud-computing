@@ -63,7 +63,30 @@ public class BoardDao {
             }     
            return list;
         }   
-     
+        
     
 }    
+    public static int update(Board board)throws Exception{
+        Class.forName("com.mysql.jdbc.Driver");
+        try (
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://13.209.64.30:3306/studydb",
+                    "study", "1111");
+            PreparedStatement stmt = con.prepareStatement(
+                "update pms2_board set titl=?, cont=?, cdt=now() where bno=?");) {
+            
+            stmt.setString(1, board.getTitl());
+            stmt.setString(2, board.getCont());
+            stmt.setInt(3, board.getBno());
+                     
+        return stmt.executeUpdate();
+          
+        
+    }
+        
+        
+    }
+    
+    public static int  
+        
 }

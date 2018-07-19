@@ -17,8 +17,8 @@
 			expression="bitcamp.pms.test.*" />
 	</context:component-scan>
 
-	<!-- Spring WebMVC 관련 애노테이션을 처리할 객체들을 등록한다. -->
-	<mvc:annotation-driven />
+	<!-- Spring WebMVC 관련 애노테이션을 처리할 객체들을 등록한다. matrix 요청값을 변수활성화하기위하여 추가-->
+	<mvc:annotation-driven enable-matrix-variables="true"/>
 
 	<!-- 공장에서 SqlSessionFactory 만들기 => 실행 원리! - class 속성에 지정된 클래스가 FactoryBean 
 		구현체라면, - 그 객체를 만들어 저장하는 것이 아니라 - 그 객체의 getObject()를 호출하면 그 리턴 값을 저장한다. -->
