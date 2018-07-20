@@ -20,13 +20,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 // AOP 용어:
 // => Advice        : 메서드(join point) 호출 앞뒤에 삽입될 코드이다. 필터 객체이다.
 //                    예) MyAdvice 클래스
-// => Join Point    : Advice가 들어갈 메서드이다.
+// => Join Point    : Advice가 들어갈 메서드이다. 
 //                    예) m() 메서드
 // => Pointcut      : Advice를 삽입할 위치 정보이다.
 //                    예) execution(* bitcamp.java106.step13.ex2.*.*(..))
 // => Target Object : Advice를 삽입할 대상 객체이다.
 //                    예) X, Y, C 클래스
-// => Aspect        : 어느 pointcut 에 어떤 advice를 삽입할 것인지 가리키는 정보이다.
+// => Aspect        : 어느 pointcut 에 어떤 advice를 삽입할 것인지 가리키는 정보이다. 관점!
 //                    예) 설정 정보 
 //
 public class Exam01 {
