@@ -35,9 +35,7 @@
              </bean>
           </property>
         </bean>        
-        </mvc:message-converters>  
-        
-        
+        </mvc:message-converters>     
      
        </mvc:annotation-driven>
     

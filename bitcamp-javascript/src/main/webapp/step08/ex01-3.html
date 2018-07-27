@@ -3,15 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>자바스크립트</title>
-<style>
-#resultDiv {
-    height: 200px;
-    border: 1px solid red;
-}
+<style >
+
+#resultDiv{
+    height:200px;
+    border:1px solid red;
 </style>
+
+
 </head>
 <body>
-<h1>AJAX 동기 요청 - 계산기 구현</h1>
+<h1>AJAX-계산기 동기방식 구현</h1>
 
 <input id="iA" type="text">
 <select id="iOp">
@@ -19,15 +21,15 @@
     <option>-</option>
     <option>*</option>
     <option>/</option>
+
 </select>
 <input id="iB" type="text">
 <button id="btn1">계산하기</button><br>
 
 <div id="resultDiv"></div>
 
-<script>
-"use strict"
 
+<script>"use strict"
 
 btn1.onclick = function() {
     var xhr = new XMLHttpRequest();
@@ -36,10 +38,12 @@ btn1.onclick = function() {
             '&op=' + iOp.value +
             '&b=' + iB.value, false);
     xhr.send();
+    // 서버에 요청한 후 서버에서 응답을 완료할 떄까지 send()는 리턴하지 않는다.
+    // 따라서 화면은 사용자의 행위에 아무런 반을 하지 못하는
+    // 벽돌 상태가 된다.  그래서 동기 방식을 쓰면안된다.
     console.log(xhr.responseText);
     resultDiv.innerHTML = xhr.responseText;
 };
-
 </script>
 
 

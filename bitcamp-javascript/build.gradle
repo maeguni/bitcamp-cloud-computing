@@ -20,6 +20,8 @@ dependencies {
     //=> testCompile :테스트할 떄만 사용 .배포에는 제외
     testCompile 'junit:junit:4.12'
     
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+    
     
 }
 
