@@ -38,7 +38,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
      out.println("</tr>");
      
      try {      
-             BoardDao boardDao = new BoardDao();   
+             BoardDao boardDao = new BoardDao();             
         List<Board>list = BoardDao.selectList();
              for(Board board : list){              
                  out.println("<tr>");
@@ -47,7 +47,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
                    board.getBno(),
                    board.getTitl(),
                    board.getCdt());                                
-                 out.println("</tr>");                 
+                 out.println("</tr>");      
+               
                    
          }
      } catch (Exception e) {

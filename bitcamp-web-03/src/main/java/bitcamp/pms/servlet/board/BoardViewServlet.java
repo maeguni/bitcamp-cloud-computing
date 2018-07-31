@@ -18,7 +18,7 @@ public class BoardViewServlet extends HttpServlet{
  @Override
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-     int no = Integer.parseInt(request.getParameter("no"));     
+     int no = Integer.parseInt(request.getParameter("no"));      
      response.setContentType("text/html;charset=UTF-8");
      PrintWriter out = response.getWriter();
      
@@ -30,13 +30,13 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
      out.println("</head>");
      out.println("<body>");
      out.println("<h1>게시물 보기</h1>");
-     out.println("<form action='update' method='post'>");
      try {
-                 Board board = BoardDao.view(no);               
-                     
+                 Board board = BoardDao.view(no);                        
+                                   
                  if (board == null) {
                      throw new Exception("유효하지 않은 게시물 번호입니다.");        
-                 }
+                 }else {
+         out.println("<form action='update' method='post'>");
          out.println("<table border='1'>");
          out.println("<tr><th>번호</th><td>");
          out.printf("    <input type='text' name='no' value='%d' readonly></td></tr>\n", 
@@ -55,7 +55,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
          out.println("<button>변경</button>");
          out.printf("<a href='delete?no=%d'>삭제</a>\n", no);
          out.println("</p>");
-         out.println("</form>");        
+         out.println("</form>");    
+                 }
          
         }catch (Exception e) {
          out.printf("<p>%s</p>\n", e.getMessage());

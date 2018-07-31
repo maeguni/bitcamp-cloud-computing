@@ -78,6 +78,7 @@ public class BoardDao {
             stmt.setString(1, board.getTitl());
             stmt.setString(2, board.getCont());
             stmt.setInt(3, board.getBno());
+            
                      
         return stmt.executeUpdate();
           
@@ -98,8 +99,9 @@ public class BoardDao {
             
              stmt.setInt(1,bno);
              
+             
              try(ResultSet rs =stmt.executeQuery();){
-                 if(rs.next()) {
+                 if(!rs.next()) {
                      return null;
                                       
                  }
@@ -107,6 +109,7 @@ public class BoardDao {
                  board.setTitl(rs.getString("titl"));
                  board.setCont(rs.getString("cont"));
                  board.setCdt(rs.getDate("cdt"));
+                 board.setBno(rs.getInt("bno"));
                  return board;
              }
         

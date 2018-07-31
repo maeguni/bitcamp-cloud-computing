@@ -2,7 +2,6 @@ package bitcamp.pms.servlet.board;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +17,8 @@ import bitcamp.pms.domain.Board;
 public class BoardUpdeteServlet extends HttpServlet{
     
  @Override
-protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+protected void doPost(HttpServletRequest request,
+        HttpServletResponse response) throws ServletException, IOException {
      
      
      request.setCharacterEncoding("UTF-8");     
@@ -28,7 +28,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
      out.println("<html>");
      out.println("<head>");
      out.println("<meta charset='UTF-8'>");
-     //out.println("<meta http-equiv='Refresh' content='4;url=list'>");
+     out.println("<meta http-equiv='Refresh' content='4;url=list'>");
      out.println("<title>게시물 변경</title>");
      out.println("</head>");
      out.println("<body>");
@@ -36,9 +36,9 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
      try {
          Board board = new Board();          
          board.setTitl(request.getParameter("title"));   
-         board.setCont(request.getParameter("content"));
-         board.setBno(Integer.parseInt(request.getParameter("no")));
-                                      
+         board.setCont(request.getParameter("content"));               
+         board.setBno(Integer.parseInt(request.getParameter("no")));  
+         System.out.println(board.toString());
          
          if(BoardDao.update(board)== 0) {
              out.println("<p>해당 게시물이 존재하지 않습니다.</p>");

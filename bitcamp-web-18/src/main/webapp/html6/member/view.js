@@ -1,30 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset='UTF-8'>
-<title>멤버 보기</title>
-</head>
-<body>
-<h1>멤버 보기</h1>
-<form>
-<table border='1'>
-<tr><th>아이디</th><td>
-    <input type='text' id='eId' readonly></td></tr>
-<tr><th>이메일</th>
-    <td><input type='email' id='eEmail'></td></tr>
-<tr><th>암호</th>
-    <td><input type='password' id='ePassword'></td></tr>
-</table>
-<p>
-<button id="eListBtn" type="button">목록</button>
-<button id="eUpdateBtn" type="button" class="viewform">변경</button>
-<button id="eDeleteBtn" type="button" class="viewform">삭제</button>
-<button id="eAddBtn" type="button" class="newform">등록</button>
-</p>
-</form>
-
-<script src="../js/bit.min.js"></script>
-<script>
 "use strict"
 
 var data = null;
@@ -37,7 +10,7 @@ if (id == undefined) { // 입력 폼
 } else { // 상세 보기 폼
     $('.newform').css('display', 'none');
 
-    $.getJSON(`../../json/member/view/${id}`, 
+    $.getJSON(serverApiAddr + `/json/member/view/${id}`, 
         function(result) {
             data = result;
             if (data.member == null) {
@@ -59,7 +32,7 @@ $(eListBtn).click(function() {
 });
 
 $(eUpdateBtn).click(function() {
-    $.post('../../json/member/update', 
+    $.post(serverApiAddr + '/json/member/update', 
         {
             id: $(eId).val(), 
             email: $(eEmail).val(), 
@@ -77,7 +50,7 @@ $(eUpdateBtn).click(function() {
 });
 
 $(eDeleteBtn).click(function() {
-    $.getJSON(`../../json/member/delete?id=${eId.value}`, 
+    $.getJSON(serverApiAddr + `/json/member/delete?id=${eId.value}`, 
         function(data) {
             if (data.status == 'success') {
                 location.href = `list.html?page=${page}&size=${size}`;
@@ -89,7 +62,7 @@ $(eDeleteBtn).click(function() {
 });
 
 $(eAddBtn).click(function() {
-    $.post('../../json/member/add', 
+    $.post(serverApiAddr + '/json/member/add', 
         {
             id: $(eId).val(), 
             email: $(eEmail).val(), 
@@ -100,18 +73,4 @@ $(eAddBtn).click(function() {
         },
         'json');
 });
-    
-</script>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
     

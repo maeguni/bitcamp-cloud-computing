@@ -108,7 +108,7 @@ public class MemberDao {
     public static List<Member> selectList() throws Exception {
           try (
             Connection con = DriverManager.getConnection(
-                "jdbc:mysql://13.125.81.120:3306/studydb",
+                    "jdbc:mysql://13.209.64.30:3306/studydb",
                 "study", "1111");
             PreparedStatement stmt = con.prepareStatement(
                 "select mid, email from pms2_member");
@@ -129,7 +129,7 @@ public class MemberDao {
       
         try (
             Connection con = DriverManager.getConnection(
-                "jdbc:mysql://13.125.81.120:3306/studydb",
+                    "jdbc:mysql://13.209.64.30:3306/studydb",
                 "study", "1111");
             PreparedStatement stmt = con.prepareStatement(
                 "select mid,email from pms2_member where mid=?");) {
@@ -153,7 +153,7 @@ public class MemberDao {
      
         try (
             Connection con = DriverManager.getConnection(
-                "jdbc:mysql://13.125.81.120:3306/studydb",
+                    "jdbc:mysql://13.209.64.30:3306/studydb",
                 "study", "1111");
             PreparedStatement stmt = con.prepareStatement(
                 "update pms2_member set email=?, pwd=password(?) where mid=?");) {
@@ -170,7 +170,7 @@ public class MemberDao {
     
         try (
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://13.125.81.120:3306/studydb",
+                    "jdbc:mysql://13.209.64.30:3306/studydb",
                     "study", "1111");
             PreparedStatement stmt = con.prepareStatement(
                 "delete from pms2_member where mid=?");) {
@@ -182,10 +182,10 @@ public class MemberDao {
     }
     
     public static void insert(Member member) throws Exception {
-     
+        
         try (
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://13.125.81.120:3306/studydb",
+                    "jdbc:mysql://13.209.64.30:3306/studydb",
                     "study", "1111");
             PreparedStatement stmt = con.prepareStatement(
                 "insert into pms2_member(mid,email,pwd) values(?,?,password(?))");) {

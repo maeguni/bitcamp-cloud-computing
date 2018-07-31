@@ -120,16 +120,14 @@ public class MemberListServlet extends HttpServlet {
         out.println("<title>멤버 목록</title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<h1>멤버 목록</h1>");
-        
+        out.println("<h1>멤버 목록</h1>");        
         out.println("<p><a href='form.html'>새회원</a></p>");
         out.println("<table border='1'>");
         out.println("<tr>");
         out.println("    <th>아이디</th><th>이메일</th>");
         out.println("</tr>");
 
-        try {
-            
+        try {            
             MemberDao memberDao = new MemberDao();
               
             List<Member> list = MemberDao.selectList();
