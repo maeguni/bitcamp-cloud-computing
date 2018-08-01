@@ -1,0 +1,8 @@
+plugins {
+    
+    // 이클립스 관련 빌드 명령 플로그인 추가 
+    //id 'eclipse'
+    id 'eclipse' //= eclise + wtp 
+    
+}
+
