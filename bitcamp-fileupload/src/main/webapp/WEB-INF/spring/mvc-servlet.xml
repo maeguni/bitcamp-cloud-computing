@@ -18,22 +18,17 @@
     -->
     <mvc:annotation-driven enable-matrix-variables="true">
         <mvc:message-converters>
-            <!-- new MappingJackson2HttpMessageConverter() -->
             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-              <!--setObjectMapper() -->
 	          <property name="objectMapper">
-	             <!-- new ObjectMapper()-->
 	             <bean class="com.fasterxml.jackson.databind.ObjectMapper">
-	                <!-- setDateFormat() -->
                     <property name="dateFormat">
-                        <!-- new SimpleDateFormat("yyyy-MM-dd") -->
                         <bean class="java.text.SimpleDateFormat">
                             <constructor-arg value="yyyy-MM-dd"/>
                         </bean>
                     </property>
 	             </bean>
 	          </property>
-	        </bean>
+	        </bean>	        
         </mvc:message-converters>
     </mvc:annotation-driven>
     
@@ -47,6 +42,18 @@
 	    <property name="suffix" value=".jsp"/>
 	</bean>
 	
+	
+	<!-- 멀티파트 요청 파라미터값을 처리할 객체를 등록해야만 파일 업로드를 수행 할수 있다 
+	=>multipartResolver 객체는 apache의 commons-fileupload 라이브러리를 사용하기 떄문에 
+	반드시 해당 라이브러리를 추가해야한다.
+	=> servlet 3.0에 추가된 API를 사용한다면 CommonsMultipartResㅐlver를 따로 추가할 필여가 없다.
+	단, web.xml 의 프론트 컨트롤러에 <m -->
+	
+	<!-- <bean id="multipartResolver" 
+    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <property name="maxUploadSize" value="3000000"></property>	
+    <property name="maxInMemorySize" value="1000000"></property>	
+    </bean> -->
 </beans>
 
 
