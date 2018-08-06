@@ -54,7 +54,7 @@ $('#fileupload').fileupload({
     setTimeout(()=>{
         $('<p>').text(`name=${data.result.name}`)
         .appendTo('#lmgList');
-        $('<p>').text(`name=${data.result.age}`)
+        $('<p>').text(`age=${data.result.age}`)
         .appendTo('#lmgList');        
         for(var filename of data.result.filenames){
         $('<img>').attr( 'src',`../files/${filename}`)
