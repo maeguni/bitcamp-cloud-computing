@@ -8,7 +8,7 @@ var fn = require('./ex07_m')
 var obj1 = fn();
 var obj2 = fn();
 
-// obj1에 들어 있는 로저가 사용하는 result 변수와
+// obj1에 들어 있는 클로저가 사용하는 result 변수와
 // obj2에 들어 있는 클로저가 사용하는 result 변수가 다르다.
 
 obj1.plus(100);
