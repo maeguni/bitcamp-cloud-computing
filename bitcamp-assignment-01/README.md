@@ -1,17 +1,26 @@
-## web-13 : Spring WebMVC의 DispatcherServlet 사용하기
-- 기존에 직접 만든 DispatcherServlet 대신에 Spring WebMVC에서 제공하는 클래스를 사용한다.
+# 실기 시험 (2018-08-10)
 
-## 프론트 컨트롤러를 Spring WebMVC 클래스로 교체한다.
-- 기존에 직접 만든 DispatcherServlet을 Spring 클래스로 교체한다.
-- web.xml에 servlet을 등록해야 한다.
+# 평가내용	
+- 주어진 주제의 시스템에 대한 기능 구현 여부를 평가한다.
+- UI 프로토타입 : https://ovenapp.io/view/U1sBifsUKVsxN5CKRYj3NvrGupTBF54F/fTMo8
 
-## 페이지 컨트롤러의 @Controller에 지정한 URL을 @RequestMapping으로 옮긴다.
-- 페이지 컨트롤러의 이름으로 지정했던 URL을 요청 핸들러의 @RequestMapping으로 옮긴다.
+# 프로젝트 주제	
+개인 명함관리시스템
 
-## @RequestMapping 애노테이션을 처리할 객체를 등록한다.
-- 요청핸들러에 붙인 @RequestMapping을 처리할 객체를 Spring에 따로 등록해야 한다.
-- 직접 해당 객체를 등록하지 말고, 단축 태그를 이용해 등록하라
+# 구현기능	
+- 회원가입(15점)
+- 로그인(10점)
+- 로그아웃(5점)
+- 회원탈퇴(5점)
+- 명함등록(15점)
+- 명함목록조회(10점)
+- 명함상세조회(10점)
+- 명함변경(10점)
+- 명함삭제(5점)
+- 명함목록조회에서 검색 기능 추가(15점)
 
-```
-  <mvc:annotation-driven/>
-```  
+
+# 평가기준	
+- 구현 완료(15점/10점/5점)
+- 구현 부족(13점/9점/4점)
+- 미구현(11점/8점/3점)

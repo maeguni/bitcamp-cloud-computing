@@ -1,0 +1,11 @@
+### 1단계 - 요구사항정의 및 DB 모델링
+- Use Case Model 작성
+      - Actor 식별
+      - Actor 를 통해 Use Case 식별
+- Use Case 명세서 적성
+     - 회원가입탈퇴 명세서 작성
+     - 회원인증 명세서 작성
+     - 명함관리 명세서 작성
+- DB 모델링 
+     - DB 모델 작성
+     - Database에 테이블 생성
