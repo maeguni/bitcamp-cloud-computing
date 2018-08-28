@@ -17,7 +17,7 @@ import bitcamp.assignment.service.MemberService;
 public class AuthController {
     
     @Autowired MemberService memberService;
-    
+  
     @PostMapping("signIn")
     public Object signIn(
             String email, 
@@ -44,6 +44,7 @@ public class AuthController {
         return result;
     }
 }
+
 
 
 
